@@ -1,0 +1,28 @@
+:root {
+	color-scheme: light;
+	--color-ink: #20332b;
+	--color-leaf: #285c45;
+	--color-paper: #f6f8f4;
+}
+
+body {
+	min-height: 100vh;
+	background: var(--color-paper);
+	color: var(--color-ink);
+}
+
+.navbar {
+	background: #fff;
+	border-bottom: 1px solid #dce5dc;
+}
+
+.navbar-brand {
+	color: var(--color-leaf);
+	font-weight: 700;
+}
+
+.navbar-brand:hover,
+.nav-link:hover,
+.nav-link.active {
+	color: var(--color-leaf);
+}
