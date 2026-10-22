@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login | Stok &amp; Belanja Kebutuhan Rumah Tangga</title>
-  <link rel="stylesheet" href="./Assets/css/style.css?v=2">
+  <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 <body>
   <main class="auth-page">
