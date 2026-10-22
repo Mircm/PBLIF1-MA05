@@ -1,239 +1,980 @@
-/* KERANGKA APLIKASI
-   .app-shell adalah pembungkus besar untuk navbar, sidebar, dan konten. */
-.app-shell {
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column; 
-  border: 1px solid #111; 
-  margin: 0; 
-}
-
-/* NAVBAR
-   .topbar adalah baris paling atas yang memuat logo, pencarian, dan profil. */
-.topbar {
-  min-height: 86px; 
-  display: flex; 
-  align-items: center; 
-  gap: 28px; 
-  padding: 12px 26px; 
-  border-bottom: 1px solid var(--line); 
-}
-
-/* Nama dan ikon aplikasi di sisi kiri navbar. */
-.brand {
-  display: flex; 
-  flex: 0 0 280px; 
-  align-items: center; 
-  gap: 14px; 
-  font-size: 17px; 
-  font-weight: 700; 
-  line-height: 1.25; 
-}
-
-/* Kotak latar untuk ikon logo. */
-.brand-mark {
-  width: 50px; 
-  height: 50px; 
-  display: grid; 
-  flex: 0 0 50px; 
-  place-items: center; 
-  border: 1px solid #777; 
-  border-radius: 4px; 
-  background: #fff; 
-  color: #111; 
-}
-
-/* Atur ukuran gambar SVG logo di dalam kotaknya. */
-.brand-mark img {
-  width: 40px; 
-  height: 40px; 
-}
-
-/* Form pencarian di bagian tengah navbar. */
-.search-form {
-  width: min(100%, 520px); 
-  margin: 0 auto; 
-}
-
-/* Kolom tempat pengguna mengetik kata pencarian. */
-.search-form input {
-  width: 100%; 
-  height: 44px; 
-  padding: 0 14px; 
-  border: 1px solid #888; 
-  border-radius: 3px; 
-  outline-color: #111; 
-}
-
-/* Bagian profil pengguna di sisi kanan navbar. */
-.user-menu {
-  display: flex; 
-  align-items: center; 
-  gap: 11px; 
-  margin-left: auto; 
-  white-space: nowrap; 
-  font-size: 14px; 
-}
-
-/* Lingkaran avatar pengguna. */
-.avatar {
-  width: 40px; 
-  height: 40px; 
-  display: grid; 
-  place-items: center; 
-  border: 1px solid #777; 
-  border-radius: 50%; 
-  background: #eee; 
-  color: #111; 
-  font-size: 18px; 
-}
-
-/* SUSUNAN SIDEBAR DAN KONTEN
-   .layout menampung sidebar di kiri dan isi halaman di sebelahnya. */
-.layout {
-  display: flex; 
-  flex: 1; 
-  min-height: 0; 
-}
-
-/* Sidebar berisi daftar menu navigasi di sisi kiri. */
-.sidebar {
-  width: 250px; 
-  flex: 0 0 250px; 
-  padding: 25px 13px; 
-  border-right: 1px solid #111; 
-  background: var(--sidebar); 
-}
-
-/* Menu di dalam sidebar disusun ke bawah dengan jarak antar-menu. */
-.sidebar nav {
-  display: flex; 
-  flex-direction: column; 
-  gap: 7px; 
-}
-
-/* Tampilan dasar setiap link menu di sidebar. */
-.nav-link {
-  min-height: 46px; 
-  display: flex; 
-  align-items: center; 
-  gap: 12px; 
-  padding: 10px 15px; 
-  border: 1px solid transparent; 
-  color: #111; 
-  font-size: 14px; 
-}
-
-/* Efek saat penunjuk mouse berada di atas link menu. */
-.nav-link:hover { background: #eee; }
-
-/* Tampilan khusus untuk menu yang sedang dipilih. */
-.nav-link.active {
-  border-color: #777; 
-  background: var(--active); 
-  font-weight: 700; 
-}
-
-/* Ukuran dan posisi gambar ikon SVG di sebelah teks menu. */
-.nav-icon {
-  width: 23px; 
-  height: 23px; 
-  flex: 0 0 23px; 
-  color: #111; 
-  object-fit: contain; 
-}
-
-/* Garis pemisah sebelum menu Logout. */
-.nav-divider {
-  height: 1px; 
-  margin: 12px 0 5px; 
-  background: #888; 
-}
-
-/* Satukan gaya kontrol form dan tabel yang dipakai di beberapa halaman. */
-.inventory-toolbar input,
-.inventory-toolbar select,
-.form-fields input,
-.form-fields select,
-.field input,
-.field select {
-  border: 1px solid #777;
-  border-radius: 3px;
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
   background: #fff;
-  color: #111;
+  --line: #999;
+  --muted: #777;
+  --light: #eee;
 }
 
-.save-button,
-.cancel-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #777;
-  border-radius: 3px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: inherit;
   text-decoration: none;
 }
 
-.dashboard-action.dashboard-action-primary,
-.add-item-button,
-.save-button {
-  background: #111;
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+.primary-button,
+.secondary-button,
+.save-button,
+.cancel-button,
+.add-item-button {
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+}
+
+.primary-button,
+.save-button,
+.add-item-button {
+  border-color: #888;
+  background: #888;
   color: #fff;
-}
-
-.cancel-button {
-  background: #fff;
-  color: #111;
-}
-
-.save-button {
   font-weight: 700;
 }
 
-.dashboard-action-primary:hover,
-.add-item-button:hover {
-  background: #333;
+.primary-button,
+.secondary-button,
+.save-button,
+.cancel-button,
+.add-item-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.filter-button,
-.inventory-table button,
-.pagination button {
+input,
+select {
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  flex: 0 0 250px;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.brand-mark,
+.brand-image {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
   border: 1px solid #777;
-  border-radius: 3px;
-  background: #fff;
-  color: #111;
 }
 
-.dashboard-table th,
-.inventory-table th {
-  background: #eee;
+.brand-mark img {
+  width: 38px;
+  height: 38px;
+}
+
+.search-form {
+  width: min(100%, 520px);
+  margin: 0 auto;
+}
+
+.search-form input {
+  width: 100%;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #777;
+  border-radius: 50%;
+  background: var(--light);
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 220px;
+  flex: 0 0 220px;
+  padding: 22px 12px;
+  border-right: 1px solid #777;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border: 1px solid #888;
+  background: #e5e5e5;
+}
+
+.nav-link.active {
   font-weight: 700;
 }
 
-.dashboard-table th,
-.dashboard-table td,
+.nav-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-divider {
+  height: 1px;
+  margin: 10px 0;
+  background: var(--line);
+}
+
+.main {
+  min-width: 0;
+  flex: 1;
+  padding: 24px;
+}
+
+.content-page-main,
+.dashboard-main,
+.inventory-main,
+.add-item-main {
+  padding-top: 18px;
+}
+
+.content-page-title,
+.dashboard-title,
+.inventory-title,
+.add-item-title {
+  margin: 0 0 4px;
+  font-size: 30px;
+}
+
+.content-page-breadcrumb,
+.dashboard-breadcrumb,
+.inventory-breadcrumb,
+.add-item-breadcrumb {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.content-panel,
+.category-form-panel,
+.mutation-entry-panel,
+.add-item-card,
+.entry-rules {
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+
+.panel-heading,
+.dashboard-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.panel-heading h2,
+.dashboard-section-heading h2,
+.mutation-history h2,
+.category-form-panel h2,
+.mutation-entry-panel h2,
+.entry-rules h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.panel-heading p,
+.shopping-summary p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.data-table-wrap,
+.inventory-table-wrap,
+.dashboard-table-wrap {
+  overflow-x: auto;
+}
+
+.data-table,
+.inventory-table,
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table th,
+.data-table td,
 .inventory-table th,
-.inventory-table td {
-  border: 1px solid #777;
+.inventory-table td,
+.dashboard-table th,
+.dashboard-table td {
+  padding: 10px;
+  border: 1px solid var(--line);
   text-align: center;
   vertical-align: middle;
 }
 
-/* AREA KONTEN
-   .main adalah area di sebelah kanan sidebar untuk isi halaman. */
-.main {
-  flex: 1; 
-  min-width: 0; 
-  padding: 30px 32px; 
+.data-table th,
+.inventory-table th,
+.dashboard-table th {
+  background: #d9d9d9;
+  font-weight: 700;
 }
 
-/* Judul utama halaman, misalnya "Dashboard". */
-.main h1 {
-  margin: 0 0 8px; 
-  font-size: 30px; 
+.data-table tfoot td,
+.report-table tfoot td {
+  background: #f1f1f1;
+  font-weight: 700;
+  text-align: right;
 }
 
-/* Paragraf di konten menggunakan warna sekunder yang lebih redup. */
-.main p {
-  margin: 0; 
-  color: var(--muted); 
+.table-footnote,
+.inventory-legend,
+.inventory-count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dashboard-summary,
+.dashboard-tables,
+.report-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.summary-card,
+.report-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+.summary-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  flex: 0 0 54px;
+  place-items: center;
+  border: 1px solid #999;
+  background: var(--light);
+}
+
+.summary-icon img {
+  width: 34px;
+  height: 34px;
+}
+
+.summary-card h2 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.summary-number {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dashboard-actions,
+.inventory-toolbar,
+.category-toolbar,
+.mutation-actions,
+.add-item-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.dashboard-action {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid #777;
+  border-radius: 4px;
+}
+
+.dashboard-action-primary {
+  background: #888;
+  color: #fff;
+}
+
+.dashboard-tables {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stock-status,
+.item-status {
+  white-space: nowrap;
+}
+
+.inventory-toolbar input,
+.inventory-toolbar select {
+  flex: 1 1 140px;
+}
+
+.inventory-toolbar .add-item-button {
+  flex: 0 0 auto;
+}
+
+.pagination,
+.category-pagination,
+.shopping-pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 12px;
+}
+
+.pagination button,
+.category-pagination button,
+.shopping-pagination button {
+  min-width: 38px;
+}
+
+.current-page {
+  background: #ddd;
+  font-weight: 700;
+}
+
+.category-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.category-layout:has(.category-form-panel:target) {
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+}
+
+.category-form-panel {
+  display: none;
+}
+
+.category-form-panel:target {
+  display: block;
+}
+
+.category-add-button,
+.table-button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-add-button {
+  min-height: 40px;
+  padding: 8px 16px;
+  background: #888;
+  color: #fff;
+  font-weight: 700;
+}
+
+.category-search {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+}
+
+.category-search input {
+  flex: 1;
+}
+
+.category-list-footer,
+.shopping-list-footer,
+.mutation-list-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.content-field,
+.field,
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.category-form,
+.mutation-form,
+.add-item-fields,
+.content-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field-hint,
+.category-notice,
+.mutation-hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mutation-entry-panel,
+.mutation-history {
+  margin-bottom: 18px;
+}
+
+.mutation-type-options {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 42px;
+}
+
+.mutation-type-field {
+  min-width: 0;
+  margin: 0;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.mutation-type-field legend {
+  padding: 0 5px;
+}
+
+.mutation-type-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.mutation-type-options input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+  accent-color: #555;
+}
+
+.mutation-description,
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.mutation-filters,
+.inline-filters {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mutation-filters > *,
+.inline-filters > * {
+  flex: 1 1 150px;
+}
+
+.add-item-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: 18px;
+}
+
+.entry-rules ul {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.shopping-notice {
+  margin: 0 0 14px;
+  padding: 12px;
+  border: 2px dashed #aaa;
+  color: #555;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+.shopping-toolbar {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(160px, 220px) minmax(300px, 1.5fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.shopping-toolbar-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.shopping-toolbar-actions > * {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.shopping-table input[type="checkbox"] {
+  width: 16px;
+  min-height: 16px;
+  padding: 0;
+  accent-color: #222;
+}
+
+.shopping-list-table td:nth-child(2),
+.shopping-list-table td:nth-child(3),
+.shopping-list-table td:nth-child(8) {
+  text-align: left;
+}
+
+.shopping-print-page {
+  min-width: 0;
+}
+
+.shopping-print-container {
+  width: min(100% - 28px, 880px);
+  margin: 10px auto 20px;
+}
+
+.shopping-print-caption {
+  color: #555;
+  font-style: italic;
+}
+
+.shopping-print-sheet {
+  min-height: calc(100vh - 140px);
+  padding: 26px 28px;
+  border: 1px solid #333;
+}
+
+.shopping-print-sheet h1 {
+  font-size: 19px;
+  text-align: center;
+}
+
+.shopping-print-date {
+  padding-bottom: 14px;
+  border-bottom: 2px solid #aaa;
+  color: var(--muted);
+  text-align: center;
+}
+
+.shopping-print-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shopping-print-table th,
+.shopping-print-table td {
+  height: 45px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+}
+
+.shopping-print-table th {
+  background: #d9d9d9;
+}
+
+.shopping-print-table td:first-child,
+.shopping-print-table td:nth-child(3),
+.shopping-print-table td:nth-child(4) {
+  text-align: center;
+}
+
+.shopping-print-table tfoot td {
+  background: #f1f1f1;
+  font-weight: 700;
+  text-align: right;
+}
+
+.shopping-print-notes {
+  margin-top: 24px;
+  color: var(--muted);
+}
+
+.shopping-print-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.shopping-print-actions > * {
+  width: 200px;
+  min-height: 50px;
+}
+
+.report-tabs > input {
+  position: absolute;
+  opacity: 0;
+}
+
+.report-tab-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 0 12px;
+}
+
+.report-tab-list label {
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  text-align: center;
+}
+
+#report-current:checked ~ .report-tab-list label[for="report-current"],
+#report-low:checked ~ .report-tab-list label[for="report-low"],
+#report-mutation:checked ~ .report-tab-list label[for="report-mutation"] {
+  background: #ddd;
+  font-weight: 700;
+}
+
+.report-view {
+  display: none;
+}
+
+#report-current:checked ~ .report-current-view,
+#report-low:checked ~ .report-low-view,
+#report-mutation:checked ~ .report-mutation-view {
+  display: block;
+}
+
+.report-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(120px, .6fr);
+  align-items: end;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 14px 18px;
+  border: 1px solid #777;
+  border-radius: 9px;
+}
+
+.report-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.report-filters button {
+  min-height: 46px;
+}
+
+.report-low-filters {
+  grid-template-columns: repeat(2, minmax(160px, 1fr)) minmax(120px, .6fr);
+}
+
+.report-mutation-filters {
+  grid-template-columns: repeat(4, minmax(130px, 1fr)) minmax(110px, .7fr);
+}
+
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  text-align: left;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.auth-card {
+  width: min(100%, 440px);
+  padding: 26px;
+  border: 1px solid #777;
+  border-radius: 7px;
+}
+
+.auth-panel .brand {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.brand-image {
+  width: 100px;
+  height: 80px;
+}
+
+.brand-image img {
+  width: 60px;
+  height: 60px;
+}
+
+.auth-panel h1,
+.auth-panel h2 {
+  text-align: center;
+}
+
+.divider {
+  height: 1px;
+  margin: 16px 0;
+  background: #777;
+}
+
+.subtitle,
+.switch-prompt {
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-form label {
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-message {
+  padding: 10px;
+  border: 1px dashed #888;
+  color: var(--muted);
+  text-align: center;
+}
+
+.submit-button {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: #888;
+  color: #fff;
+  font-weight: 700;
+}
+
+.register-panel {
+  padding-top: 16px;
+}
+
+.register-panel:target {
+  display: block;
+}
+
+.auth-card:has(#registerPanel:target) #loginPanel {
+  display: none;
+}
+
+.register-panel:not(:target) {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    flex-basis: 200px;
+  }
+
+  .shopping-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shopping-toolbar-actions {
+    grid-column: 1 / -1;
+  }
+
+  .report-filters,
+  .report-low-filters,
+  .report-mutation-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 12px;
+  }
+
+  .search-form {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 8px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+  }
+
+  .nav-divider,
+  .logout-link {
+    display: none;
+  }
+
+  .main {
+    padding: 16px 12px;
+  }
+
+  .dashboard-summary,
+  .dashboard-tables,
+  .category-layout,
+  .add-item-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .report-tab-list {
+    gap: 4px;
+  }
+
+  .report-tab-list label {
+    font-size: 12px;
+  }
+
+  .report-filters,
+  .report-low-filters,
+  .report-mutation-filters,
+  .category-form,
+  .mutation-form,
+  .add-item-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-toolbar-actions {
+    grid-column: auto;
+    flex-wrap: wrap;
+  }
+
+  .shopping-list-footer,
+  .category-list-footer,
+  .mutation-list-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shopping-print-sheet {
+    min-height: 80vh;
+    padding: 16px 10px;
+  }
+
+  .shopping-print-table {
+    font-size: 12px;
+  }
+
+  .shopping-print-table th,
+  .shopping-print-table td {
+    padding: 6px;
+  }
 }

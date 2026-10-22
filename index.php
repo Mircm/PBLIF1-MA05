@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login | Stok &amp; Belanja Kebutuhan Rumah Tangga</title>
-  <link rel="stylesheet" href="Assets/css/base.css">
-  <link rel="stylesheet" href="Assets/css/auth.css">
+  <link rel="stylesheet" href="./Assets/css/style.css?v=2">
 </head>
 <body>
   <main class="auth-page">
@@ -26,7 +25,7 @@
           <input id="loginUsername" autocomplete="username" placeholder="Masukkan username Anda">
           <div class="label-row">
             <label for="loginPassword">Password</label>
-            <span class="password-toggle">Lihat</span>
+            <span class="password-toggle"></span>
           </div>
           <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Masukkan password Anda">
           <p class="form-message">Pesan error ditampilkan di sini</p>
