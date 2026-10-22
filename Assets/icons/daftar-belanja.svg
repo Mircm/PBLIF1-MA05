@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1{fill:none;stroke:#1a1a1a;stroke-width:50;stroke-miterlimit:10}
+    </style>
+  </defs>
+  <title>icon</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <path d="M292.079 235.266 L707.921 235.266 C730.314 235.266 748.468 253.42 748.468 275.813 L748.468 778.406 C748.468 800.8 730.314 818.953 707.921 818.953 L292.079 818.953 C269.686 818.953 251.532 800.8 251.532 778.406 L251.532 275.813 C251.532 253.42 269.686 235.266 292.079 235.266 Z" class="cls-1"/>
+      <path d="M343.942 380.325 L644.743 380.325" class="cls-1"/>
+      <path d="M343.942 521.394 L644.743 521.394" class="cls-1"/>
+      <path d="M343.942 657.709 L540.701 657.709" class="cls-1"/>
+      <path d="M343.942 182.461 L399.576 290.901" class="cls-1"/>
+      <path d="M644.743 181.047 L589.109 289.486" class="cls-1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,221 @@
+/* Pusatkan kartu autentikasi di tengah layar dan beri ruang di sekelilingnya. */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+/* Buat kartu utama dengan lebar tetap seperti rancangan desktop. */
+.auth-card {
+  width: min(100%, 434px);
+  padding: 27px 28px 30px;
+  border: 1px solid #777;
+  border-radius: 8px;
+}
+
+/* Tampilkan login sebagai panel awal dan sembunyikan registrasi sampai dipilih. */
+.register-panel {
+  display: none;
+}
+
+/* Ganti panel ke registrasi saat tautan registrasi menjadi target halaman. */
+.auth-card:has(#registerPanel:target) #loginPanel {
+  display: none;
+}
+
+/* Tampilkan panel registrasi ketika tautan registrasi dipilih. */
+#registerPanel:target {
+  display: block;
+}
+
+/* Susun logo dan nama aplikasi secara vertikal dan di tengah panel. */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Sediakan kotak berbingkai sebagai area ikon aplikasi. */
+.brand-image {
+  width: 145px;
+  height: 102px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border: 1px solid #777;
+  background: #eee;
+}
+
+/* Atur ukuran ikon aplikasi agar pas di dalam area logonya. */
+.brand-image img {
+  width: 72px;
+  height: 72px;
+}
+
+/* Tampilkan nama aplikasi tebal dengan dua baris yang rapat. */
+.brand h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+/* Buat garis pemisah horizontal dengan jarak vertikal yang seragam. */
+.divider {
+  height: 1.5px;
+  margin: 16px 0;
+  background: #111;
+}
+
+/* Samakan gaya judul login dan registrasi agar besar serta rata tengah. */
+.auth-panel h2,
+.register-title {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* Tampilkan keterangan di bawah judul dengan warna sekunder. */
+.subtitle {
+  margin: 8px 0 22px;
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Susun label, input, pesan, dan tombol form secara vertikal. */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bedakan label input dengan teks tebal dan jarak kecil ke kolomnya. */
+.auth-form label {
+  margin: 0 0 5px 3px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Atur ukuran, jarak, border, dan fokus untuk semua kolom isian. */
+.auth-form input {
+  width: 100%;
+  height: 48px;
+  margin: 0 0 18px;
+  padding: 0 13px;
+  border: 1px solid #777;
+  border-radius: 3px;
+  outline-color: #111;
+  font-size: 16px;
+}
+
+/* Gunakan warna abu-abu untuk teks petunjuk di dalam kolom input. */
+.auth-form input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+/* Letakkan label password dan tombol tampilkan password pada satu baris. */
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Buat kontrol tampil/sembunyikan password tampak seperti tautan sederhana. */
+.password-toggle {
+  margin: 0 4px 5px 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #111;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Siapkan kotak pesan validasi berpagar putus-putus seperti pada referensi. */
+.form-message {
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  margin: -11px 0 9px;
+  padding: 7px 10px;
+  border: 1px dashed #777;
+  color: #555;
+  font-size: 11px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Tampilkan tombol utama lebar penuh dengan latar abu-abu. */
+.submit-button {
+  min-height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Gelapkan tombol utama saat penunjuk berada di atasnya. */
+.submit-button:hover {
+  background: #333;
+}
+
+/* Atur jarak garis pemisah yang berada di atas tautan ganti panel. */
+.footer-divider {
+  margin: 18px 0 17px;
+}
+
+/* Ratakan teks ajakan berganti panel ke tengah. */
+.switch-prompt {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Hilangkan tampilan tombol bawaan agar tautan ganti panel menyatu dengan teks. */
+.switch-prompt a {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Garisbawahi tautan ganti panel saat pointer diarahkan ke sana. */
+.switch-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Pastikan judul registrasi tidak memiliki jarak atas tambahan. */
+.register-title {
+  margin-top: 0;
+}
+
+/* Sesuaikan jarak keterangan registrasi sebelum garis pemisah. */
+.register-subtitle {
+  margin-bottom: 16px;
+}
+
+/* Beri jarak lebih lebar antar kolom pada formulir registrasi. */
+.register-form input {
+  margin-bottom: 24px;
+}
+
+/* Rapikan jarak pesan validasi pada formulir registrasi. */
+.register-form .form-message {
+  margin-top: 0;
+}
+
+/* Samakan tinggi tombol daftar dengan rancangan registrasi. */
+.register-form .submit-button {
+  min-height: 54px;
+}

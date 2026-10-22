@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1{fill:none;stroke:#1a1a1a;stroke-width:50;stroke-miterlimit:10}
+    </style>
+  </defs>
+  <title>icon</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <path d="M459.205 226.412 L312.906 226.412 C291.93 226.412 274.925 243.416 274.925 264.393 L274.925 735.607 C274.925 756.584 291.93 773.588 312.906 773.588 L459.205 773.588" class="cls-1"/>
+      <path d="M379.022 500 L725.075 500" class="cls-1"/>
+      <path d="M590.03 352.165" class="cls-1"/>
+      <path d="M590.03 636.322 L725.075 500 L590.03 352.165" class="cls-1"/>
+    </g>
+  </g>
+</svg>

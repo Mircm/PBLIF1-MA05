@@ -1,0 +1,239 @@
+/* KERANGKA APLIKASI
+   .app-shell adalah pembungkus besar untuk navbar, sidebar, dan konten. */
+.app-shell {
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  border: 1px solid #111; 
+  margin: 0; 
+}
+
+/* NAVBAR
+   .topbar adalah baris paling atas yang memuat logo, pencarian, dan profil. */
+.topbar {
+  min-height: 86px; 
+  display: flex; 
+  align-items: center; 
+  gap: 28px; 
+  padding: 12px 26px; 
+  border-bottom: 1px solid var(--line); 
+}
+
+/* Nama dan ikon aplikasi di sisi kiri navbar. */
+.brand {
+  display: flex; 
+  flex: 0 0 280px; 
+  align-items: center; 
+  gap: 14px; 
+  font-size: 17px; 
+  font-weight: 700; 
+  line-height: 1.25; 
+}
+
+/* Kotak latar untuk ikon logo. */
+.brand-mark {
+  width: 50px; 
+  height: 50px; 
+  display: grid; 
+  flex: 0 0 50px; 
+  place-items: center; 
+  border: 1px solid #777; 
+  border-radius: 4px; 
+  background: #fff; 
+  color: #111; 
+}
+
+/* Atur ukuran gambar SVG logo di dalam kotaknya. */
+.brand-mark img {
+  width: 40px; 
+  height: 40px; 
+}
+
+/* Form pencarian di bagian tengah navbar. */
+.search-form {
+  width: min(100%, 520px); 
+  margin: 0 auto; 
+}
+
+/* Kolom tempat pengguna mengetik kata pencarian. */
+.search-form input {
+  width: 100%; 
+  height: 44px; 
+  padding: 0 14px; 
+  border: 1px solid #888; 
+  border-radius: 3px; 
+  outline-color: #111; 
+}
+
+/* Bagian profil pengguna di sisi kanan navbar. */
+.user-menu {
+  display: flex; 
+  align-items: center; 
+  gap: 11px; 
+  margin-left: auto; 
+  white-space: nowrap; 
+  font-size: 14px; 
+}
+
+/* Lingkaran avatar pengguna. */
+.avatar {
+  width: 40px; 
+  height: 40px; 
+  display: grid; 
+  place-items: center; 
+  border: 1px solid #777; 
+  border-radius: 50%; 
+  background: #eee; 
+  color: #111; 
+  font-size: 18px; 
+}
+
+/* SUSUNAN SIDEBAR DAN KONTEN
+   .layout menampung sidebar di kiri dan isi halaman di sebelahnya. */
+.layout {
+  display: flex; 
+  flex: 1; 
+  min-height: 0; 
+}
+
+/* Sidebar berisi daftar menu navigasi di sisi kiri. */
+.sidebar {
+  width: 250px; 
+  flex: 0 0 250px; 
+  padding: 25px 13px; 
+  border-right: 1px solid #111; 
+  background: var(--sidebar); 
+}
+
+/* Menu di dalam sidebar disusun ke bawah dengan jarak antar-menu. */
+.sidebar nav {
+  display: flex; 
+  flex-direction: column; 
+  gap: 7px; 
+}
+
+/* Tampilan dasar setiap link menu di sidebar. */
+.nav-link {
+  min-height: 46px; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 10px 15px; 
+  border: 1px solid transparent; 
+  color: #111; 
+  font-size: 14px; 
+}
+
+/* Efek saat penunjuk mouse berada di atas link menu. */
+.nav-link:hover { background: #eee; }
+
+/* Tampilan khusus untuk menu yang sedang dipilih. */
+.nav-link.active {
+  border-color: #777; 
+  background: var(--active); 
+  font-weight: 700; 
+}
+
+/* Ukuran dan posisi gambar ikon SVG di sebelah teks menu. */
+.nav-icon {
+  width: 23px; 
+  height: 23px; 
+  flex: 0 0 23px; 
+  color: #111; 
+  object-fit: contain; 
+}
+
+/* Garis pemisah sebelum menu Logout. */
+.nav-divider {
+  height: 1px; 
+  margin: 12px 0 5px; 
+  background: #888; 
+}
+
+/* Satukan gaya kontrol form dan tabel yang dipakai di beberapa halaman. */
+.inventory-toolbar input,
+.inventory-toolbar select,
+.form-fields input,
+.form-fields select,
+.field input,
+.field select {
+  border: 1px solid #777;
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+}
+
+.save-button,
+.cancel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #777;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.dashboard-action.dashboard-action-primary,
+.add-item-button,
+.save-button {
+  background: #111;
+  color: #fff;
+}
+
+.cancel-button {
+  background: #fff;
+  color: #111;
+}
+
+.save-button {
+  font-weight: 700;
+}
+
+.dashboard-action-primary:hover,
+.add-item-button:hover {
+  background: #333;
+}
+
+.filter-button,
+.inventory-table button,
+.pagination button {
+  border: 1px solid #777;
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+}
+
+.dashboard-table th,
+.inventory-table th {
+  background: #eee;
+  font-weight: 700;
+}
+
+.dashboard-table th,
+.dashboard-table td,
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #777;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* AREA KONTEN
+   .main adalah area di sebelah kanan sidebar untuk isi halaman. */
+.main {
+  flex: 1; 
+  min-width: 0; 
+  padding: 30px 32px; 
+}
+
+/* Judul utama halaman, misalnya "Dashboard". */
+.main h1 {
+  margin: 0 0 8px; 
+  font-size: 30px; 
+}
+
+/* Paragraf di konten menggunakan warna sekunder yang lebih redup. */
+.main p {
+  margin: 0; 
+  color: var(--muted); 
+}
