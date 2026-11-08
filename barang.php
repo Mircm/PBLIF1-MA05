@@ -53,7 +53,7 @@
           <div class="nav-divider" aria-hidden="true"></div>
           <a class="nav-link logout-link" href="index.php">
             <img class="nav-icon" src="Assets/icons/logout.svg" alt="">
-            Logout
+            Log-Out
           </a>
         </nav>
       </aside>
