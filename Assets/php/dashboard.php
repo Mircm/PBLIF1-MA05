@@ -15,28 +15,31 @@ $ringkasan = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard  Stok & Belanja Rumah Tangga</title>
-    <link rel="stylesheet"  href="../css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="../icons/stok-belanja.svg">
 </head>
 <body>
 
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="brand">
-            <div class="brand-logo" img src="../icons/stok-belanja.svg" alt=""></div>
+            <div class="brand-logo">
+                <img src="../icons/stok-belanja.svg" alt="Logo Stok & Belanja">
+            </div>
             <div class="brand-title">Stok &amp; Belanja<br>Rumah Tangga</div>
         </div>
 
         <ul class="nav-menu">
-            <li class="nav-item"><a href="dashboard.php" class="nav-link active">Dashboard</a></li>
-            <li class="nav-item"><a href="kategori.php" class="nav-link">Kategori</a></li>
-            <li class="nav-item"><a href="barang.php" class="nav-link">Barang</a></li>
-            <li class="nav-item"><a href="mutasi.php" class="nav-link">Mutasi Stok</a></li>
-            <li class="nav-item"><a href="belanja.php" class="nav-link">Daftar Belanja</a></li>
-            <li class="nav-item"><a href="laporan.php" class="nav-link">Laporan</a></li>
+            <li class="nav-item"><a href="dashboard.php" class="nav-link active"><img src="../icons/dashboard.svg" alt=""><span>Dashboard</span></a></li>
+            <li class="nav-item"><a href="kategori.php" class="nav-link"><img src="../icons/kategori.svg" alt=""><span>Kategori</span></a></li>
+            <li class="nav-item"><a href="barang.php" class="nav-link"><img src="../icons/barang.svg" alt=""><span>Barang</span></a></li>
+            <li class="nav-item"><a href="mutasi.php" class="nav-link"><img src="../icons/mutasi-stok.svg" alt=""><span>Mutasi Stok</span></a></li>
+            <li class="nav-item"><a href="belanja.php" class="nav-link"><img src="../icons/daftar-belanja.svg" alt=""><span>Daftar Belanja</span></a></li>
+            <li class="nav-item"><a href="laporan.php" class="nav-link"><img src="../icons/laporan.svg" alt=""><span>Laporan</span></a></li>
         </ul>
 
         <div class="nav-logout">
-            <a href="login.php" class="nav-link">Logout</a>
+            <a href="login.php" class="nav-link"><img src="../icons/logout.svg" alt=""><span>Logout</span></a>
         </div>
     </aside>
 
