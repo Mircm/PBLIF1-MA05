@@ -223,6 +223,12 @@ body {
     text-decoration: none;
 }
 
+.disabled-link {
+    color: #9aa2a7;
+    font-weight: bold;
+    cursor: not-allowed;
+}
+
 @media (min-width: 431px) {
     .auth-card {
         min-height: calc(100vh - 32px);

@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($matchedUser && password_verify($password, $matchedUser['password'])) {
             $_SESSION['current_user'] = $matchedUser['username'];
-            $message = 'Login berhasil. Selamat datang, ' . $matchedUser['name'] . '!';
-            $messageType = 'success';
+            header('Location: dashboard.php');
+            exit;
         } else {
             $message = 'Username/email atau password salah. Periksa kembali data akun Anda.';
         }
@@ -109,11 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </p>
                     <?php endif; ?>
 
-                    <button class="submit-button" type="submit"> <a href="dashboard.php">Masuk</button>
+                    <button class="submit-button" type="submit">Masuk</button>
                 </form>
 
                 <hr>
-                <p class="switch-prompt">Belum punya akun? <a href="regist.php">Registrasi</a></p>
+                <p class="switch-prompt">Belum punya akun? <span class="disabled-link" aria-disabled="true">Registrasi</span></p>
             </div>
         </section>
     </main>
