@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </p>
                     <?php endif; ?>
 
-                    <button class="submit-button" type="submit">Masuk</button>
+                    <button class="submit-button" type="submit"><a href="dashboard.php">Masuk</a></button>
                 </form>
 
                 <hr>
