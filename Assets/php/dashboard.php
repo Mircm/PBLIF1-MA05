@@ -11,17 +11,13 @@ $ringkasan = [
 $stokRendah = [
     ['barang' => 'Minyak Goreng', 'stok' => '2 liter', 'min' => 3, 'status' => 'Rendah'],
     ['barang' => 'Shampo',        'stok' => '1 botol', 'min' => 2, 'status' => 'Rendah'],
-    ['barang' => 'Air Minum Galon','stok' => '0 galon', 'min' => 1, 'status' => 'Habis'],
-    ['barang' => 'Tisu Toilet',   'stok' => '4 roll',  'min' => 6, 'status' => 'Rendah'],
-    ['barang' => 'Gula Pasir',     'stok' => '1 kg',    'min' => 2, 'status' => 'Rendah'],
+
 ];
 
 $mutasiHariIni = [
     ['barang' => 'Beras',          'jenis' => 'Masuk',  'jumlah' => '10 kg',   'keterangan' => 'Beli di pasar'],
     ['barang' => 'Sabun Mandi',    'jenis' => 'Keluar', 'jumlah' => '2 pcs',   'keterangan' => 'Dipakai'],
-    ['barang' => 'Air Minum Galon','jenis' => 'Keluar', 'jumlah' => '1 galon', 'keterangan' => 'Habis dipakai'],
-    ['barang' => 'Gula Pasir',     'jenis' => 'Keluar', 'jumlah' => '1 kg',    'keterangan' => 'Dipakai'],
-    ['barang' => 'Telur',          'jenis' => 'Masuk',  'jumlah' => '30 butir','keterangan' => 'Beli'],
+
 ];
 
 $keyword = isset($_GET['q']) ? trim($_GET['q']) : '';
@@ -50,7 +46,7 @@ if ($keyword !== '') {
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="brand">
-            <div class="brand-logo" href="dashboard.svg"></div>
+            <div class="brand-logo" <img src="../icons/stok-belanja.svg" alt=""></div>
             <div class="brand-title">Stok &amp; Belanja<br>Rumah Tangga</div>
         </div>
 
@@ -82,7 +78,7 @@ if ($keyword !== '') {
             </form>
 
             <div class="user-profile">
-                <div class="avatar"><?= strtoupper(substr($namaPengguna, 0, 1)) ?></div>
+                
                 <span><?= htmlspecialchars($namaPengguna) ?> &#9662;</span>
             </div>
         </header>
@@ -115,7 +111,7 @@ if ($keyword !== '') {
             <!-- Action Buttons -->
             <section class="action-bar">
                 <a href="#tambah-barang" class="btn btn-primary">+ Tambah Barang</a>
-                <a href="#catat-mutasi" class="btn btn-success">+ Catat Mutasi</a>
+                <a href="#catat-mutasi" class="btn btn-primary">+ Catat Mutasi</a>
                 <a href="#daftar-belanja" class="btn btn-outline">Lihat Daftar Belanja</a>
             </section>
 
