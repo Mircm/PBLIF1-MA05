@@ -3,9 +3,9 @@
 $namaPengguna = "Nama Pengguna";
 
 $ringkasan = [
-    'jumlah_barang'     => 48,
-    'barang_stok_rendah'=> 7,
-    'mutasi_hari_ini'   => 5,
+    'jumlah_barang'     => 0,
+    'barang_stok_rendah'=> 0,
+    'mutasi_hari_ini'   => 0,
 ];
 
 ?>
