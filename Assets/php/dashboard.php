@@ -1,6 +1,6 @@
 
 <?php
-$namaPengguna = "Nama Pengguna";
+$namaPengguna = "demo123!";
 
 $ringkasan = [
     'jumlah_barang'     => 0,
@@ -22,7 +22,7 @@ $ringkasan = [
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="brand">
-            <div class="brand-logo" <img src="../icons/stok-belanja.svg" alt=""></div>
+            <div class="brand-logo" img src="../icons/stok-belanja.svg" alt=""></div>
             <div class="brand-title">Stok &amp; Belanja<br>Rumah Tangga</div>
         </div>
 
