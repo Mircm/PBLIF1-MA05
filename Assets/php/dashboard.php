@@ -8,19 +8,6 @@ $ringkasan = [
     'mutasi_hari_ini'   => 5,
 ];
 
-
-$keyword = isset($_GET['q']) ? trim($_GET['q']) : '';
-if ($keyword !== '') {
-    $qLower = mb_strtolower($keyword);
-    $stokRendah = array_filter($stokRendah, function ($row) use ($qLower) {
-        return mb_strpos(mb_strtolower($row['barang']), $qLower) !== false
-            || mb_strpos(mb_strtolower($row['status']), $qLower) !== false;
-    });
-    $mutasiHariIni = array_filter($mutasiHariIni, function ($row) use ($qLower) {
-        return mb_strpos(mb_strtolower($row['barang']), $qLower) !== false
-            || mb_strpos(mb_strtolower($row['keterangan']), $qLower) !== false;
-    });
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -61,7 +48,7 @@ if ($keyword !== '') {
                 <input
                     type="text"
                     name="q"
-                    value="<?= htmlspecialchars($keyword) ?>"
+                    value=""
                     placeholder="Cari barang, kategori, atau lokasi..."
                 >
             </form>
