@@ -50,7 +50,7 @@ if ($keyword !== '') {
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="brand">
-            <div class="brand-logo">SB</div>
+            <div class="brand-logo" href="dashboard.svg"></div>
             <div class="brand-title">Stok &amp; Belanja<br>Rumah Tangga</div>
         </div>
 
