@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
 
                 <hr>
-                <p class="switch-prompt">Belum punya akun? <span class="disabled-link" aria-disabled="true">Registrasi</span></p>
+                <p class="switch-prompt">Belum punya akun? <span class="disabled-link" aria-disabled="true"><a href="regist.php">Registrasi</a></span></p>
             </div>
         </section>
     </main>
