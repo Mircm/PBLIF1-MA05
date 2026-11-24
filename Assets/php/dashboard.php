@@ -8,17 +8,6 @@ $ringkasan = [
     'mutasi_hari_ini'   => 5,
 ];
 
-$stokRendah = [
-    ['barang' => 'Minyak Goreng', 'stok' => '2 liter', 'min' => 3, 'status' => 'Rendah'],
-    ['barang' => 'Shampo',        'stok' => '1 botol', 'min' => 2, 'status' => 'Rendah'],
-
-];
-
-$mutasiHariIni = [
-    ['barang' => 'Beras',          'jenis' => 'Masuk',  'jumlah' => '10 kg',   'keterangan' => 'Beli di pasar'],
-    ['barang' => 'Sabun Mandi',    'jenis' => 'Keluar', 'jumlah' => '2 pcs',   'keterangan' => 'Dipakai'],
-
-];
 
 $keyword = isset($_GET['q']) ? trim($_GET['q']) : '';
 if ($keyword !== '') {
@@ -113,98 +102,6 @@ if ($keyword !== '') {
                 <a href="#tambah-barang" class="btn btn-primary">+ Tambah Barang</a>
                 <a href="#catat-mutasi" class="btn btn-primary">+ Catat Mutasi</a>
                 <a href="#daftar-belanja" class="btn btn-outline">Lihat Daftar Belanja</a>
-            </section>
-
-            <!-- Two Data Tables -->
-            <section class="tables-grid">
-                <!-- Tabel Barang Stok Rendah -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Barang Stok Rendah</h2>
-                        <a href="#stok-rendah" class="card-link">Lihat semua</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Barang</th>
-                                    <th>Stok</th>
-                                    <th>Min</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (empty($stokRendah)): ?>
-                                    <tr>
-                                        <td colspan="4" style="text-align:center; color:#64748b;">Tidak ada data yang cocok.</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach ($stokRendah as $item): ?>
-                                        <?php
-                                        $isEmpty = strtolower($item['status']) === 'habis';
-                                        $badgeClass = $isEmpty ? 'badge-empty' : 'badge-low';
-                                        $icon = $isEmpty ? '&#10005;' : '&#9650;';
-                                        ?>
-                                        <tr>
-                                            <td><strong><?= htmlspecialchars($item['barang']) ?></strong></td>
-                                            <td><?= htmlspecialchars($item['stok']) ?></td>
-                                            <td><?= htmlspecialchars((string)$item['min']) ?></td>
-                                            <td>
-                                                <span class="badge <?= $badgeClass ?>">
-                                                    <?= $icon ?> <?= htmlspecialchars($item['status']) ?>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Tabel Mutasi Hari Ini -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Mutasi Hari Ini</h2>
-                        <a href="#mutasi-hari-ini" class="card-link">Lihat semua</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Barang</th>
-                                    <th>Jenis</th>
-                                    <th>Jumlah</th>
-                                    <th>Keterangan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (empty($mutasiHariIni)): ?>
-                                    <tr>
-                                        <td colspan="4" style="text-align:center; color:#64748b;">Tidak ada mutasi yang cocok.</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach ($mutasiHariIni as $mutasi): ?>
-                                        <?php
-                                        $isMasuk = strtolower($mutasi['jenis']) === 'masuk';
-                                        $jenisClass = $isMasuk ? 'badge-in' : 'badge-out';
-                                        ?>
-                                        <tr>
-                                            <td><strong><?= htmlspecialchars($mutasi['barang']) ?></strong></td>
-                                            <td>
-                                                <span class="badge <?= $jenisClass ?>">
-                                                    <?= htmlspecialchars($mutasi['jenis']) ?>
-                                                </span>
-                                            </td>
-                                            <td><?= htmlspecialchars($mutasi['jumlah']) ?></td>
-                                            <td><?= htmlspecialchars($mutasi['keterangan']) ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </section>
         </main>
     </div>
