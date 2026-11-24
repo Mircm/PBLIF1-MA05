@@ -132,6 +132,17 @@ body {
     color: #747e86;
 }
 
+.auth-form input[type="password"] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.auth-form input[type="password"]::-ms-reveal,
+.auth-form input[type="password"]::-ms-clear,
+.auth-form input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none;
+}
+
 .password-label {
     display: flex;
     align-items: center;
@@ -148,14 +159,36 @@ body {
     cursor: pointer;
 }
 
+.password-toggle::before,
+.password-toggle::after {
+    content: none;
+}
+
+.demo-account {
+    margin: 0 0 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #eaf5f5;
+    color: #35545a;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
 .form-message {
-    min-height: 37px;
     margin: -2px 0 12px;
-    padding: 9px 8px;
-    border: 1px dashed #c7ced3;
-    color: #d64c45;
-    font-size: 12px;
-    text-align: center;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.form-message.error {
+    background: #fff2f0;
+    color: #c7352b;
+}
+
+.form-message.success {
+    background: #eaf5ed;
+    color: #24733b;
 }
 
 .submit-button {

@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+$demoUser = [
+    'name' => 'Pengguna Demo',
+    'username' => 'demo',
+    'email' => 'demo@contoh.com',
+    'password' => password_hash('Demo123!', PASSWORD_DEFAULT),
+];
+$registeredUsers = $_SESSION['registered_users'] ?? [];
+$message = $_SESSION['flash_message'] ?? '';
+$messageType = $_SESSION['flash_type'] ?? 'success';
+unset($_SESSION['flash_message'], $_SESSION['flash_type']);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $loginName = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $messageType = 'error';
+
+    if ($loginName === '' || $password === '') {
+        $message = 'Username/email dan password wajib diisi.';
+    } else {
+        $users = array_merge([$demoUser], $registeredUsers);
+        $matchedUser = null;
+
+        foreach ($users as $user) {
+            if (
+                strcasecmp($loginName, $user['username']) === 0
+                || strcasecmp($loginName, $user['email']) === 0
+            ) {
+                $matchedUser = $user;
+                break;
+            }
+        }
+
+        if ($matchedUser && password_verify($password, $matchedUser['password'])) {
+            $_SESSION['current_user'] = $matchedUser['username'];
+            $message = 'Login berhasil. Selamat datang, ' . $matchedUser['name'] . '!';
+            $messageType = 'success';
+        } else {
+            $message = 'Username/email atau password salah. Periksa kembali data akun Anda.';
+        }
+    }
+}
+?>
 <!doctype html>
 <html lang="id">
 <head>
@@ -22,6 +67,12 @@
             <div class="auth-content">
                 <h2>Login</h2>
                 <p class="subtitle">Masuk untuk mengakses akun Anda</p>
+
+                <p class="demo-account">
+                    Akun demo untuk mencoba:<br>
+                    Username: <strong>demo</strong> atau email: <strong>demo@contoh.com</strong><br>
+                    Password: <strong>Demo123!</strong>
+                </p>
 
                 <form class="auth-form" action="login.php" method="post">
                     <label for="username">Username / Email</label>
@@ -52,7 +103,11 @@
                         required
                     >
 
-                    <p class="form-message">Username atau password salah</p>
+                    <?php if ($message !== ''): ?>
+                        <p class="form-message <?= htmlspecialchars($messageType, ENT_QUOTES, 'UTF-8') ?>" role="alert">
+                            <?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?>
+                        </p>
+                    <?php endif; ?>
 
                     <button class="submit-button" type="submit">Masuk</button>
                 </form>
